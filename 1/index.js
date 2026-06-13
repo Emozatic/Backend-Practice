@@ -1,5 +1,10 @@
 const express= require("express");
 const app= express();
+let path= require("path");
+
+
+app.set("view engine","ejs");
+app.set("views", path.join(__dirname,"/views"))
 
 const port= 3000;
 
@@ -11,7 +16,7 @@ const port= 3000;
 // })
 
 app.get("/",(req,res)=>{
-    res.send("home tab");
+    res.render("home.ejs")
 })
 
 app.get("/home/:id",(req,res)=>{
