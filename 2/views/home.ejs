@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Roll Dice</h1>
+    <!-- <p>The dice number is:- <%= Math.floor(Math.random()*7) %></p> -->
+     
+
+     <h1>This page is belongs to <%= username %>    </h1>
+     <h2>The followings names are:- </h2>
+     <!-- <% for(let name of listname){%>    
+        <ul>
+            <li><%=name%></li>
+            
+        </ul>
+    <%}%> -->
+
+    <%for(let i=0; i<listname.length; i++){%>
+        <ul>
+            <li><%=listname[2]%></li>
+        </ul>
+        <%}%>
+</body>
+</html>
