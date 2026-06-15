@@ -13,11 +13,24 @@ app.set("views", path.join(__dirname,"/views"));
 //     res.send("done");
 // })
 
-app.get("/product/:id",(req,res)=>{
+// app.get("/product/:id",(req,res)=>{
 
-    console.log(req.params.id);
-    console.log(req.query.category);
-    res.send("done");
+//     console.log(req.params.id);
+//     console.log(req.query.category);
+//     res.send("done");
+// })
+
+app.get("/home",(req,res)=>{
+    let name= "Lucky";
+    res.render("home.ejs", {name})
+})
+
+app.get("/data",(req,res)=>{
+    res.render("home.ejs",{
+        name:"Lucky",
+        age:21,
+        skills:["art", "code", "edit"]
+    })
 })
 
 app.listen(8000,(req,res)=>{
