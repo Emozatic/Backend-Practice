@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Chats</h1>
+    <button><a href="/home/new">create a new msg</a></button>
+    <%for(let chats of chat){%>
+        <ul>
+            <li><%=chats.from%></li>
+            <li><%=chats.to%></li>
+            <li><%=chats.msg%></li>
+            <button><a href="/home/edit/<%=chats._id%>">
+                Edit
+            </a></button>
+            <form action="/home/delete/<%=chats._id%>?_method=DELETE" method="POST">
+                <button>DELETE</button>
+            </form>
+        </ul>
+    <%}%>
+</body>
+</html>
