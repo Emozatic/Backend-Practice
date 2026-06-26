@@ -1,33 +1,24 @@
 const express= require("express");
 const app= express();
-let path= require("path");
+//console.log(app);
 
-
-app.set("view engine","ejs");
-app.set("views", path.join(__dirname,"/views"))
-
-const port= 3000;
-
-
-// app.use((req,res)=>{
-//     res.send("hello world")
-//     console.log("console")
-//     next()      
-// })
 
 app.get("/",(req,res)=>{
-    res.render("home.ejs")
+    res.send("Hello World!");
 })
 
-app.get("/home/:id",(req,res)=>{
-    console.log(req.params.id);
-})
-
-app.get("/home",(req,res)=>{
-    console.log(req.query.q);
+app.get("/html",(req,res)=>{
+    let code= "<h1>This is Html generated</h1>"
+    res.send(code);
 })
 
 
+
+
+
+
+
+const port= 8000;
 app.listen(port,()=>{
-    console.log("app is listening at 3000");
+    console.log("app is listening at 8000");
 })
