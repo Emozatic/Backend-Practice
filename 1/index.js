@@ -1,5 +1,10 @@
 const express= require("express");
 const app= express();
+
+
+
+
+app.set("view engine","ejs");
 //console.log(app);
 
 
@@ -12,9 +17,10 @@ app.get("/html",(req,res)=>{
     res.send(code);
 })
 
-
-
-
+app.get("/home/:name",(req,res)=>{
+    console.log(req.params.name);
+    console.log(req.query);
+})
 
 
 
