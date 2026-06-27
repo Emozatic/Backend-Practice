@@ -1,28 +1,37 @@
 const express= require("express");
 const app= express();
+const path= require("path");
+const mongoose= require("mongoose");
 
+
+async function main(){
+    await mongoose.connect('mongodb://127.0.0.1:27017/backend1')
+}
+
+main().then(()=>{
+    console.log("connected to mongo");
+}).catch((err)=>{
+    console.log(err);
+})
 
 
 
 app.set("view engine","ejs");
-//console.log(app);
+app.set("views",path.join(__dirname,"/views"))
 
 
-app.get("/",(req,res)=>{
-    res.send("Hello World!");
+app.get("/home",(req,res)=>{
+    res.render("home.ejs");
 })
 
-app.get("/html",(req,res)=>{
-    let code= "<h1>This is Html generated</h1>"
-    res.send(code);
+app.get("/form",(req,res)=>{
+    res.render("form.ejs");
 })
 
-app.get("/home/:name",(req,res)=>{
-    console.log(req.params.name);
-    console.log(req.query);
+app.post("/register",(req,res)=>{
+    res.send("registered")
+    console.log(req.body.username)
 })
-
-
 
 const port= 8000;
 app.listen(port,()=>{
